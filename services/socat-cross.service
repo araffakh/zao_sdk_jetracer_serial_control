@@ -1,0 +1,14 @@
+[Unit]
+Description=socat virtual serial cross cable
+Before=zao-remote-endpoint.service
+
+[Service]
+User=zao
+Group=zao
+UMask=027
+Type=simple
+ExecStart=/usr/bin/socat pty,raw,echo=0,link=/run/zao/ttyZAOV0,group=dialout,mode=660 pty,raw,echo=0,link=/run/zao/ttyZAOV1,group=dialout,mode=660
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

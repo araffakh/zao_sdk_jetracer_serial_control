@@ -1,0 +1,12 @@
+[Unit]
+Description=Zao SDK Car service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=always
+User=jetson
+ExecStart=/usr/bin/python3 /home/jetson/Desktop/zao_sdk_serial_tunneling_rc_car/zao_sdk_jet_racer_contolling/base_main.py
+
+[Install]
+WantedBy=multi-user.target
